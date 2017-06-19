@@ -1,4 +1,4 @@
-# Mastering-Java-EE-Development-with-WildFly
+# Mastering Java-EE Development with WildFly
 This is the code repository for [Mastering Java EE Development with WildFly](https://www.packtpub.com/web-development/mastering-java-ee-development-wildfly-10?utm_source=github&utm_medium=repository&utm_campaign=9781787287174), published by [Packt](https://www.packtpub.com/). It contains all the supporting project files necessary to work through the book from start to finish.
 ## About the Book
 Do you want to create real-time highly scalable Java applications with the latest WildFly application Server? Then this book is the ideal choice for you.
