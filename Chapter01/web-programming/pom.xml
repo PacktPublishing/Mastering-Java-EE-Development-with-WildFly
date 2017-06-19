@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>it.vige.wildfly</groupId>
+		<artifactId>book</artifactId>
+		<version>1.0.2</version>
+	</parent>
+	
+	<artifactId>web-programming</artifactId>
+	<packaging>pom</packaging>
+	<name>Wildfly Web Programming</name>
+	<description>Part 4 - Web programming</description>
+	
+	<profiles>
+		<profile>
+			<id>selenium</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<configuration>
+							<argLine>-Duser.language=${user.language}
+								-Duser.region=${user.country}</argLine>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>com.google.code.maven-replacer-plugin</groupId>
+						<artifactId>replacer</artifactId>
+						<version>1.5.3</version>
+						<executions>
+							<execution>
+								<phase>test-compile</phase>
+								<goals>
+									<goal>replace</goal>
+								</goals>
+							</execution>
+						</executions>
+						<configuration>
+							<filesToInclude>${project.build.directory}/test-classes/arquillian.xml,${project.build.directory}/test-classes/prefs.js</filesToInclude>
+							<replacements>
+								<replacement>
+									<token>@OUTPUT_DIR@</token>
+									<value>${project.build.directory}</value>
+								</replacement>
+								<replacement>
+									<token>@TEMP_DIR@</token>
+									<value>${java.io.tmpdir}</value>
+								</replacement>
+							</replacements>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
