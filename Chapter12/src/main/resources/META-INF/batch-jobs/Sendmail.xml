@@ -1,0 +1,26 @@
+<job id="Sendmail" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	version="1.0">
+
+	<flow id="mainprocess" next="sendemail">
+
+		<step id="copyfiles" next="decider1">
+
+			<batchlet ref="copyFilesBatchlet" />
+		</step>
+
+		<decision id="decider1" ref="decisionNode">
+			<next on="DSK_SPACE_LOW" to="sendemail" />
+			<end on="DSK_SPACE_OK" />
+		</decision>
+	</flow>
+
+
+
+	<step id="sendemail">
+		<properties>
+			<property name="mail.from" value="SENDER-EMAIL" />
+			<property name="mail.to" value="DESTINATION-EMAIL" />
+		</properties>
+		<batchlet ref="mailBatchlet" />
+	</step>
+</job>

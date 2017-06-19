@@ -1,0 +1,10 @@
+<job id="PayrollJob" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	version="1.0">
+	<step id="process">
+		<chunk item-count="2">
+			<reader ref="payrollItemReader" />
+			<processor ref="payrollItemProcessor" />
+			<writer ref="payrollItemWriter" />
+		</chunk>
+	</step>
+</job>

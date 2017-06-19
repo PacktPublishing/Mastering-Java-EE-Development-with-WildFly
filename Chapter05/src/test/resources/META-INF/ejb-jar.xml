@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/ejb-jar_3_2.xsd"
+	version="3.2">
+	<module-name>remoting</module-name>
+	<enterprise-beans>
+		<session>
+			<ejb-name>bank</ejb-name>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+	</enterprise-beans>
+	<assembly-descriptor>
+        <container-transaction>
+            <method>
+                <ejb-name>bank</ejb-name>
+                <method-intf>Remote</method-intf>
+                <method-name>transactionStatus</method-name>
+            </method>
+            <trans-attribute>Never</trans-attribute>
+        </container-transaction>
+	</assembly-descriptor>
+</ejb-jar>

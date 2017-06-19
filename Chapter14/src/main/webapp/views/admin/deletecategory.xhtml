@@ -1,0 +1,48 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:forums="http://www.jboss.com/products/jbossportal/forums"
+	class="forumscontainer">
+
+	<ui:composition template="/views/common/common.xhtml">
+		<ui:define name="mainContent">
+
+			<h1>${resourcebundle.Category_delete}</h1>
+			<p>${resourcebundle.Forum_delete_explain}</p>
+
+			<div class="forumsubscriptionconfirm">
+				<h:form>
+					<input type="hidden" name="c" value="#{param['c']}" />
+					<h3>${resourcebundle.Category_delete}</h3>
+					<p>${resourcebundle.Category}</p>
+					<h4>#{adminController.categoryName}</h4>
+					<label>${resourcebundle.Move_contents}</label>
+					<br />
+					<h:selectOneMenu value="#{adminController.selectedCategory}">
+						<f:selectItem itemValue="-1"
+							itemLabel="${resourcebundle.Delete_all_forums_topics_posts}" />
+						<c:forEach items="#{adminPanel.categories}" var="category">
+							<c:if test="#{category.id != param['c']}">
+								<f:selectItem itemValue="#{category.id}"
+									itemLabel="#{category.title}" />
+							</c:if>
+						</c:forEach>
+					</h:selectOneMenu>
+					<div class="forumformbuttonrow">
+						<ul>
+							<li><h:commandButton value="${resourcebundle.Confirm}"
+									styleClass="buttonMed"
+									action="#{adminController.deleteCategory}" /></li>
+							<li><h:commandButton type="submit"
+									action="${adminController.cancel}"
+									value="${resourcebundle.Cancel}" styleClass="buttonMed" /></li>
+						</ul>
+					</div>
+				</h:form>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</div>

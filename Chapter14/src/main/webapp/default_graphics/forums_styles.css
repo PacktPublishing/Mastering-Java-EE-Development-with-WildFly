@@ -1,0 +1,498 @@
+.bodyStyle{
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    color: #656565;
+}
+
+.scroll {
+	width: 800px;
+	overflow: auto;
+}
+
+.forumscontainer {
+	margin:0px 25px 0px 15px;
+	font-family: 'Lucida Grande', Geneva, Verdana, Arial, sans-serif;
+	font-size:11px;
+}
+
+.forumscontainer a {
+	text-decoration: underline;
+	}
+
+.forumsectionhdr {
+	border-bottom: 1px solid #a1a1a1;
+	text-align:right;
+}
+
+.forumsectionhdr ul {
+	margin-bottom: 4px;
+}
+
+.forumsectionhdr li {
+	display:inline;
+	color: #656565;
+	font-size:11px;
+	font-weight:bold;
+}
+
+.forumsectionhdr a {
+	color:#4a5d75;
+}
+
+.forumdashedHR {
+	clear:both;
+	border-top:1px dashed #a1a1a1; 
+	background-color: #FFFFFF;
+	border-bottom:0px;
+	border-left:0px;
+	border-right:0px;
+	margin:10px auto;
+}
+
+
+/* Link workaround for images used as links where spaces may be added */
+.imglink { 
+	text-decoration: none;
+}
+	
+
+/* -------------------------- floats ------------------------------------------- */
+.forumfloatright {
+	float:right;
+}
+
+.forumfloatleft {
+	float:left;
+}
+
+/* -------------------------- titles, headers & text ------------------------------- */
+.forumtitletext {
+}
+
+.forumtitletext h4{
+	margin: 5px auto;
+	color:#233345;
+	font-size:14px;
+	font-weight:bold;	
+}
+.forumtitletext .successtext {
+	margin: 5px auto;
+	color:#226809;
+	font-size:12px;
+	font-weight:bold;	
+}
+.forumtitletext .failuretext {
+	margin: 5px auto;
+	color:#CC0000;
+	font-size:12px;
+	font-weight:bold;	
+}
+.forumtitletext p {
+	margin: 2px auto 12px auto;
+}
+
+/* --------------------------- Buttons ---------------------------------- */
+
+.buttonMed {
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #4a5d75;
+	border-top: 1px solid #94aebd;
+	border-left: 1px solid #94aebd;
+	border-right: 1px solid #233345;
+	border-bottom: 1px solid #233345;
+	height: 20px;
+}
+
+.actionbuttons {
+	padding: 5px 0px;
+}
+
+.actionbuttons ul {
+	padding: 0px;
+	margin: 0px;
+	display: inline;
+	} 
+
+.actionbuttons ul li {
+	list-style: none;
+	display: inline;
+	padding: 0px;
+	margin: 0px;
+	}
+
+.actionbuttons ul li img {
+	border: 0px;
+	padding-right: 4px;
+	vertical-align: text-bottom;
+	}
+
+.actionbuttons ul li a {
+	text-decoration:none;
+	}
+
+
+/* -------------------------- Forum Breadcrumb navigation --------------------------------- */
+.forumbread {
+	color: #4a5d75;
+	padding-right: 3px;
+	margin: 10px auto;
+	}
+
+.forumbread ul {
+	margin-left: 0px;
+	padding-left: 0px;
+	display: inline;
+	border: none;
+	} 
+
+.forumbread ul li {
+	margin-left: 3px;
+	font-size:10px;
+	border: none;
+	list-style: none;
+	display: inline;
+	}
+
+.forumbread ul li .first {
+	margin-left:0px;
+	font-size:10px;
+	border: none;
+	list-style: none;
+	display: inline;
+	}
+
+.forumbread a {
+	color:#4a5d75;
+	text-decoration: underline;
+}
+
+/* --------------------  Forum Table styles ------------------------ */
+.forumtablestyle {
+	clear:both;
+}
+
+.forumtablestyle td {
+	border-bottom:1px solid #e6e7e8;
+	padding: 3px 5px;
+	font-size:11px;
+}
+
+.forumtablestyle a {
+	color:#4a5d75;
+}
+
+.forumtablestyle h3 {
+	margin:0px;
+	padding:0px;
+	font-weight: bold;
+	font-size:11px;
+	display:inline;
+}
+
+.forumtablestyle .header {
+	background-color:#233345;
+	font-size:10px;
+	font-weight:bold;
+	color:#94aebd;
+	height: 20px;
+	text-align:left;
+}
+
+.forumtablestyle .secondaryHeader {
+	background-color:#9bb3c1;
+	font-size:10px;
+	font-weight:bold;
+	color:#000000;
+	height: 20px;
+	text-align:left;
+}
+
+.forumtablestyle .forumheaderfirst {
+	border-bottom:1px solid #233345;
+	height:2em;
+
+}
+
+.forumtablestyle .tableheader {
+	border-left:1px solid #94aebd;
+	border-bottom:1px solid #233345;
+	height:2em;
+}
+
+.forumtablestyle .forumheadercentered {
+	text-align:center;
+	border-left:1px solid #94aebd;
+	border-bottom:1px solid #233345;
+	width:50px;
+}
+.forumtablestyle .forumheaderopen {
+	border-left:1px solid #94aebd;
+	border-bottom:1px solid #233345;
+}
+.forumtablestyle .forumheader250px {
+	border-left:1px solid #94aebd;
+	border-bottom:1px solid #233345;
+	width:250px;
+
+}
+
+.forumtablestyle .forumheaderlast {
+	border-left:1px solid #94aebd;
+	border-bottom:1px solid #233345;
+	width:250px;
+}
+.forumtablestyle .forumheadernarrow {
+	border-left:1px solid #94aebd;
+	border-bottom:1px solid #233345;
+	width:30px;
+}
+
+.forumtablestyle .forumlisticon {
+	width:10px;
+	height:40px;
+}
+
+.forumtablestyle .forumlistcentered {
+	width:50px;
+	text-align: center;
+	border-left:1px solid #e6e7e8;
+	height:40px;
+}
+
+.forumtablestyle .forumlistlast {
+	width:250px;
+	border-left:1px solid #e6e7e8;
+	height:40px;
+}
+
+.forumtablestyle .forumlistopen {
+	border-left:1px solid #e6e7e8;
+	height:40px;
+}
+
+.forumtablestyle .forumcategory {
+	background-color:#f4f3f3;
+	border-bottom:1px solid #e6e7e8;
+	height:25px;
+}
+.forumtablestyle .forumspecialized {
+	background-color:#dedede;
+	border-bottom:1px solid #e6e7e8;
+	height:25px;
+	text-align: left;
+}
+.forumtablestyle .forumcategory h3 {
+	font-weight: bold;
+	font-size:11px;
+}
+
+.forumtablestyle .footerrow {
+	background-color:#e6e7e8;
+}
+.forumtablestyle .spacerRow {
+	background-color:#ffffff;
+	height:15px;
+}
+
+.forumtablestyle .oddRow{
+    background-color: #f4f3f3;
+}
+
+.forumtablestyle .evenRow{
+    background-color: #ffffff;
+}
+
+.forumtablestyle .Indent{
+    padding-left:20px;
+}
+
+.forumtablestyle .rowlinefirst {
+	border-bottom:1px solid #e6e7e8;
+}
+
+.forumtablestyle .rowline {
+	border-left:1px solid #e6e7e8;
+	border-bottom:1px solid #e6e7e8;
+}
+.forumtablestyle .editRow{
+	background-color:#fff6e4;
+}
+
+.forumtablestyle .nonewpostRow {
+	background-color: #f4f3f3;
+	font-weight:bold;
+}
+
+.forumtablestyle .labelCell {
+    background-color: #f4f3f3;
+    width: 0%;
+    white-space: nowrap;
+	font-size:10px;
+	font-weight:bold;
+}
+
+.forumtablestyle .valueCell {
+}
+
+.forumtablestyle .bottomline {
+	border-bottom:1px solid #656565;
+}
+.forumsubtablestyle {
+	clear:both;
+}
+
+.forumsubtablestyle td {
+	border-bottom:0px;
+	padding: 0px 0px;
+}
+
+/* -------------------  Forms ------------------------------- */
+
+.forumtablestyle .categorylabel {
+	width: 100px;
+	padding:0px;
+	margin:0px;
+}
+.forumtablestyle label{
+ 	float: left;
+ 	vertical-align: middle;
+}
+
+.forumtablestyle textarea {
+	width: 180px;
+	margin-bottom: 5px;
+	vertical-align:middle;
+}
+
+textarea{
+	width: 250px;
+	height: 150px;
+}
+
+.forumtablestyle br {
+	clear: left;
+}
+#adminbutton {
+	width:90px;
+	margin-left:100px;
+}
+#updateinline {
+	width:90px;
+	margin-left:6px;
+}
+
+
+/* -------------------  Legends ------------------------------- */
+
+.forumlegend {
+	margin-bottom: 10px;
+}
+
+.forumlegend ul {
+	padding-left: 0px;
+	margin-left: 0px;
+	display: inline;
+	text-indent:0px;
+	} 
+
+.forumlegend ul li {
+	font-size:10px;
+	list-style: none;
+	display: inline;
+	}
+
+.forumlegend ul li img {
+	border: 0px;
+	padding-left: 4px;
+	padding-right: 4px;
+	vertical-align: text-bottom;
+	}
+.forumlegendCentered {
+	clear:both;
+	font-size:11px;
+	font-weight:normal;
+	padding-bottom: 15px;
+	text-align:center;
+}
+.forumthreadlegend {
+	float:left;
+ 	margin-right: 30px;
+}
+
+.forumthreadlegend ul {
+	margin-top:0px;
+	padding-left: 0px;
+	margin-left: 0px;
+	display: block;
+	text-indent:none;
+	} 
+
+.forumthreadlegend ul li {
+	list-style: none;
+	display: block;
+	}
+
+.forumthreadlegend ul li img {
+	border: 0px;
+	padding-top: 4px;
+	padding-right: 4px;
+	vertical-align: text-bottom;
+	}
+
+.forumthreadlegendtext {
+	text-align:right;
+	float:right;
+}
+
+/* ----------------------- Admin/Moderation styles ------------------------ */
+
+.admintools {
+	padding-top: 4px;
+}
+
+.admintools ul {
+	padding-left: 0px;
+	margin-left: 0px;
+	display: inline;
+	} 
+
+.admintools ul li {
+	font-size:10px;
+	list-style: none;
+	display: inline;
+	}
+
+.admintools ul li img {
+	border: 0px;
+	padding-left: 2px;
+	vertical-align: text-bottom;
+	}
+
+/* --------------------SPACER -------------*/
+#adminbottommargin {
+	margin-bottom: 10px;
+}	
+
+/*  ------------ powered by ---------------- */
+
+.PoweredBy {
+	clear:both;
+	text-align:center;
+}
+
+.PoweredBy img {
+	padding-left: 6px;
+	vertical-align:middle;
+}
+
+h4 {
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   font-size: 11px;
+   font-weight: bold;
+   color: #656565;
+   padding-top: 20px;
+   padding-bottom: 5px;
+   margin: 0px;
+}

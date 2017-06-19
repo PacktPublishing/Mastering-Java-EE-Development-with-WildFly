@@ -1,0 +1,39 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:forums="http://www.jboss.com/products/jbossportal/forums"
+	class="forumscontainer">
+	<ui:composition>
+
+		<c:if test="#{forums:isRunningInPortal()}">
+			<div class="forumscontainer">
+
+				<!-- style sheet for this application -->
+				<link rel='stylesheet' type='text/css'
+					href='#{forums:contextPath()}/default_graphics/forums_styles.css'
+					media='screen' />
+				<ui:insert name="content" />
+
+			</div>
+		</c:if>
+
+		<c:if test="#{forums:isRunningInPortal()==false}">
+			<h:head>
+				<title><h:outputText value="#{shared.mainPageName}" /></title>
+				<meta http-equiv="Content-Type" content="text/html;" />
+				<!-- style sheet for this application -->
+				<link rel='stylesheet' type='text/css'
+					href='#{forums:contextPath()}/default_graphics/forums_styles.css'
+					media='screen' />
+			</h:head>
+			<h:body class="bodyStyle">
+				<div class="forumscontainer">
+					<ui:insert name="content" />
+				</div>
+			</h:body>
+		</c:if>
+
+	</ui:composition>
+</div>

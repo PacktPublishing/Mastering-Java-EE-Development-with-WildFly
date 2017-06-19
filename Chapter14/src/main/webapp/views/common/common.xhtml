@@ -1,0 +1,57 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:forums="http://www.jboss.com/products/jbossportal/forums"
+	class="forumscontainer">
+
+	<ui:composition template="/views/common/common_decoration.xhtml">
+		<ui:define name="content">
+
+			<!-- resourceBundle to be used by this entire application -->
+			<f:loadBundle basename="ResourceJSF" var="resourcebundle" />
+			<h:form>
+				<!-- display the function tray -->
+				<div class="forumsectionhdr">
+					<ul>
+
+						<li><h:commandLink value="${resourcebundle.Home}"
+								action="viewCategory" /></li>
+
+						<h:panelGroup rendered="#{userModule.guest==false}">
+							<forums:isAllowed fragment="acl://accessAdminTool"
+								forumsACLProvider="#{forumsACLProvider}"
+								userModule="#{userModule}">
+								<li>&#160;&#160;|&#160;&#160; <h:commandLink
+										action="adminPanel" value="${resourcebundle.Admin_panel}" />
+								</li>
+							</forums:isAllowed>
+						</h:panelGroup>
+
+					</ul>
+				</div>
+			</h:form>
+
+			<!-- body of the page -->
+			<c:choose>
+				<c:when test="#{(forums:errorMsg())!=null}">
+					<!-- generic error handling -->
+					<ui:include src="/views/errors/error_body.xhtml" />
+				</c:when>
+				<c:otherwise>
+					<!-- main content for this page -->
+					<ui:insert name="mainContent" />
+				</c:otherwise>
+			</c:choose>
+
+			<!-- footer -->
+			<div class="PoweredBy">
+				${resourcebundle.Powered_by}&#160;<a
+					href="https://github.com/flashboss/rubia-forums"><img
+					border="0" src="${themeHelper.getURL('resourceIconForumsLogoURL')}" /></a>
+			</div>
+
+		</ui:define>
+	</ui:composition>
+</div>

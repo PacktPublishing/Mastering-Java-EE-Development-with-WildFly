@@ -1,0 +1,14 @@
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+		http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+	bean-discovery-mode="all">
+    <interceptors>
+        <class>it.vige.businesscomponents.injection.interceptor.AuditInterceptor</class>
+        <class>it.vige.businesscomponents.injection.interceptor.LoggingInterceptor</class>
+        <class>it.vige.businesscomponents.injection.interceptor.TraceInterceptor</class>
+    </interceptors>
+
+    <alternatives>
+        <stereotype>it.vige.businesscomponents.injection.alternative.stereotype.ServiceStereotype</stereotype>
+    </alternatives>
+</beans>

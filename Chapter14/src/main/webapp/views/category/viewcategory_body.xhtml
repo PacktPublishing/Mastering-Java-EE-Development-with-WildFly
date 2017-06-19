@@ -1,0 +1,144 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:forums="http://www.jboss.com/products/jbossportal/forums"
+	class="forumscontainer">
+
+	<ui:composition template="/views/common/common.xhtml">
+		<ui:define name="mainContent">
+			<h:form>
+				<div class="forumbread">
+					<ul>
+						<li class="first"><h:commandLink
+								value="#{shared.mainPageName}" action="viewCategory" /> <c:if
+								test="#{category.categories ne null and category.categorySelected eq true}">
+								<ul>
+									<li>&gt; <c:forEach items="#{category.categories}"
+											var="catrow">
+											<h:commandLink value="#{catrow.title}" action="viewCategory">
+												<f:param name="c" value="#{catrow.id}" />
+											</h:commandLink>
+										</c:forEach>
+									</li>
+								</ul>
+							</c:if></li>
+					</ul>
+				</div>
+			</h:form>
+
+			<h:form>
+				<table width="100%" border="0" cellpadding="0" cellspacing="0"
+					class="forumtablestyle">
+
+					<tr class="header">
+						<td class="forumheaderfirst" colspan="2">#{resourcebundle.Forum}</td>
+						<td class="forumheadercentered">#{resourcebundle.Topics}</td>
+						<td class="forumheadercentered">#{resourcebundle.Posts}</td>
+						<td class="forumheaderlast">#{resourcebundle.Last_Post}</td>
+					</tr>
+
+					<!-- display each category and its corresponding forums -->
+					<c:forEach items="#{category.categories}" var="catrow">
+						<forums:isAllowed fragment="acl://readCategory"
+							contextData="#{catrow}" forumsACLProvider="#{forumsACLProvider}"
+							userModule="#{userModule}">
+
+							<tr>
+								<td class="forumcategory" colspan="5">
+									<h3>
+										<h:commandLink value="#{catrow.title}" action="viewCategory">
+											<f:param name="c" value="#{catrow.id}" />
+										</h:commandLink>
+									</h3>
+								</td>
+							</tr>
+
+							<c:forEach items="#{category.forums[catrow.id]}" var="forumrow">
+								<forums:isAllowed fragment="acl://readForum"
+									contextData="#{forumrow}"
+									forumsACLProvider="#{forumsACLProvider}"
+									userModule="#{userModule}">
+									<tr>
+										<td class="forumlisticon"><img
+											src="#{category.forumImages[forumrow.id]}" width="11"
+											height="14"
+											alt="#{resourcebundle[category.forumImageDescriptions[forumrow.id]]}"
+											title="#{resourcebundle[category.forumImageDescriptions[forumrow.id]]}" />
+										</td>
+										<td>
+											<h3>
+												<h:commandLink value="#{forumrow.name}" action="viewForum">
+													<f:param name="f" value="#{forumrow.id}" />
+													<f:param name="page" value="0" />
+												</h:commandLink>
+											</h3> <br></br> ${forumrow.description}
+										</td>
+										<td class="forumlistcentered">${forumrow.topicCount}</td>
+										<td class="forumlistcentered">${forumrow.postCount}</td>
+										<td class="forumlistlast"><c:choose>
+												<c:when test="#{category.forumLastPosts[forumrow.id]!=null}">
+													<h:commandLink action="viewTopic"
+														value="#{category.getLastPostSubject(forumrow.id)}">
+														<f:param name="p"
+															value="#{category.forumLastPosts[forumrow.id].id}" />
+													</h:commandLink>
+
+													<br></br>
+                                ${resourcebundle.By}&#160;
+
+														<h:panelGroup rendered="#{userModule.guest}">
+                                        ${userModule.findUserById(category.forumLastPosts[forumrow.id].poster.userId).userName}
+                                    </h:panelGroup>
+
+													<h:panelGroup rendered="#{!userModule.guest}">
+														<h:commandLink
+															value="${userModule.findUserById(category.forumLastPosts[forumrow.id].poster.userId).userName}"
+															action="viewProfile">
+															<f:param name="uid"
+																value="#{category.forumLastPosts[forumrow.id].poster.userId}" />
+														</h:commandLink>
+													</h:panelGroup>
+
+													<br></br>
+                                #{category.forumLastPosts[forumrow.id].createDate}
+                                
+                            </c:when>
+
+												<c:otherwise>
+                                #{resourcebundle.No_Posts}
+                            </c:otherwise>
+
+											</c:choose></td>
+
+									</tr>
+
+								</forums:isAllowed>
+							</c:forEach>
+
+						</forums:isAllowed>
+					</c:forEach>
+
+				</table>
+
+				<div class="forumlegend">
+					<hr class="forumdashedHR"></hr>
+					<ul>
+						<li><img src="${themeHelper.getURL('resourceForumNewURL')}"
+							alt="${resourcebundle.New_posts}" width="11" height="14" />
+							${resourcebundle.New_posts}</li>
+						<li><img src="${themeHelper.getURL('resourceForumURL')}"
+							alt="${resourcebundle.No_new_posts}" width="11" height="14" />
+							${resourcebundle.No_new_posts}</li>
+						<li><img
+							src="${themeHelper.getURL('resourceForumLockedURL')}"
+							alt="${resourcebundle.Forum_is_locked}" width="11" height="14" />
+							${resourcebundle.Forum_is_locked}</li>
+					</ul>
+				</div>
+
+			</h:form>
+		</ui:define>
+	</ui:composition>
+</div>

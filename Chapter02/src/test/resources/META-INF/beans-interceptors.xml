@@ -1,0 +1,13 @@
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+		http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+	bean-discovery-mode="all">
+	<!-- in java EE 7 they are not more important. The interceptors are always actived if you annotate them -->
+	<interceptors>
+		<class>it.vige.businesscomponents.injection.interceptor.AuditInterceptor</class>
+		<class>it.vige.businesscomponents.injection.interceptor.LoggingInterceptor</class>
+		<class>it.vige.businesscomponents.injection.interceptor.TraceInterceptor</class>
+		<class>it.vige.businesscomponents.injection.interceptor.ExcludedInterceptor</class>
+		<class>it.vige.businesscomponents.injection.interceptor.ExcludingInterceptor</class>
+	</interceptors>
+</beans>

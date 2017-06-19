@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<arquillian xmlns="http://www.jboss.org/arquillian-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xsi:schemaLocation="http://www.jboss.org/arquillian-1.0 http://jboss.org/schema/arquillian/arquillian-1.0.xsd">
+
+    <engine>
+        <property name="deploymentExportPath">target/</property>
+    </engine>
+
+    <defaultProtocol type="jmx-as7" />
+
+    <group qualifier="clustering-all">
+
+        <container qualifier="container-0" mode="custom" managed="false" default="true">
+            <configuration>
+                <property name="jbossHome">${basedir}/target/wildfly-10.1.0.Final</property>
+                <!-- AS7-2493 different jboss.node.name must be specified -->
+                <property name="javaVmArguments">-Dorg.jboss.ejb.client.wildfly-testsuite-hack=true -Xmx512m -XX:MetaspaceSize=128m -Djboss.dist=${basedir}/target/wildfly-10.1.0.Final -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv6Addresses=false -server -Dts.timeout.factor=100 -Dnode0=127.0.0.1 -Dnode1=127.0.0.1 -Dmcast=230.0.0.4 -Dmcast.ttl=0 -Djboss.inst=${basedir}/target/wildfly-10.1.0.Final -Djboss.node.name=node-0 ${jboss.node0.options:}</property>
+                <property name="serverConfig">${jboss.server.config.file.name}</property>
+                <property name="managementAddress">${node0:127.0.0.1}</property>
+                <property name="managementPort">${as.managementPort:9990}</property>
+
+                <!-- AS7-4070 -->
+                <property name="waitForPorts">${as.debug.port:8787} ${as.managementPort:9990}</property>
+                <property name="waitForPortsTimeoutInSeconds">8</property>
+            </configuration>
+        </container>
+
+        <container qualifier="container-1" mode="custom" managed="false">
+            <configuration>
+                <property name="jbossHome">${basedir}/target/wildfly-10.1.0.Final</property>
+                <property name="javaVmArguments">-Dorg.jboss.ejb.client.wildfly-testsuite-hack=true -Xmx512m -XX:MetaspaceSize=128m -Djboss.dist=${basedir}/target/wildfly-10.1.0.Final -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv6Addresses=false -server -Dts.timeout.factor=100 -Dnode0=127.0.0.1 -Dnode1=127.0.0.1 -Dmcast=230.0.0.4 -Dmcast.ttl=0 -Djboss.inst=${basedir}/target/wildfly-10.1.0.Final -Djboss.node.name=node-1 -Djboss.socket.binding.port-offset=100 ${jboss.node1.options:}</property>
+                <property name="serverConfig">${jboss.server.config.file.name}</property>
+                <property name="managementAddress">${node1:127.0.0.1}</property>
+                <property name="managementPort">10090</property>
+
+                <!-- AS7-4070 -->
+                <property name="waitForPorts">${as.debug.port.node1} 10090</property>
+                <property name="waitForPortsTimeoutInSeconds">8</property>
+            </configuration>
+        </container>
+
+    </group>
+</arquillian>

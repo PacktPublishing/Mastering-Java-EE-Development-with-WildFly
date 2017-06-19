@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+	version="2.2">
+
+	<name>javaserverfaces</name>
+	<!-- general application configuration -->
+	<application>
+		<!-- internationalization -->
+		<locale-config>
+			<default-locale>en</default-locale>
+			<supported-locale>it</supported-locale>
+		</locale-config>
+	</application>
+	<navigation-rule>
+		<from-view-id>/views/category/viewcategory_body.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>adminPanel</from-outcome>
+			<to-view-id>/views/admin/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/views/admin/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>viewCategory</from-outcome>
+			<to-view-id>/views/category/viewcategory_body.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>deleteCategory</from-outcome>
+			<to-view-id>/views/admin/deletecategory.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/views/admin/deletecategory.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>cancel</from-outcome>
+			<to-view-id>/views/admin/index.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>deleteCategory</from-outcome>
+			<to-view-id>/views/admin/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<lifecycle>
+		<phase-listener>it.vige.webprogramming.javaserverfaces.ui.back.BackButton</phase-listener>
+	</lifecycle>
+</faces-config>

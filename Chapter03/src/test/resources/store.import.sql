@@ -1,0 +1,1 @@
+CREATE ALIAS my_sum AS $$ int my_sum(int x, int y) { return x+y; } $$;

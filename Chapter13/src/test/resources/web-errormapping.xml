@@ -1,0 +1,27 @@
+<web-app 
+    version="3.1" 
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">   
+    <servlet>
+        <servlet-name>ErrorMappingServlet</servlet-name>
+        <servlet-class>it.vige.webprogramming.servletjsp.errormapping.ErrorMappingServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ErrorMappingServlet</servlet-name>
+        <url-pattern>/ErrorMappingServlet</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <error-page> 
+        <error-code>404</error-code> 
+        <location>/view/error-404.jsp</location>
+    </error-page>
+    <error-page> 
+        <exception-type>java.lang.RuntimeException</exception-type> 
+        <location>/view/error-exception.jsp</location>
+    </error-page>
+</web-app>

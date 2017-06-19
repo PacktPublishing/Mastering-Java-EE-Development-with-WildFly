@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<facelet-taglib xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibary_2_2.xsd"
+	version="2.2">
+	<namespace>http://www.jboss.com/products/jbossportal/forums</namespace>
+
+	<function>
+		<function-name>isRunningInPortal</function-name>
+		<function-class>it.vige.rubia.PortalUtil</function-class>
+		<function-signature>boolean isRunningInPortal()</function-signature>
+	</function>
+
+	<function>
+		<function-name>contextPath</function-name>
+		<function-class>it.vige.webprogramming.javaserverfaces.ui.JSFUtil</function-class>
+		<function-signature>java.lang.String getContextPath()</function-signature>
+	</function>
+
+	<function>
+		<function-name>errorMsg</function-name>
+		<function-class>it.vige.webprogramming.javaserverfaces.ui.JSFUtil</function-class>
+		<function-signature>java.lang.String getErrorMsg()</function-signature>
+	</function>
+
+	<function>
+		<function-name>message</function-name>
+		<function-class>it.vige.webprogramming.javaserverfaces.ui.JSFUtil</function-class>
+		<function-signature>java.lang.String getMessage(java.lang.String)</function-signature>
+	</function>
+
+	<tag>
+		<tag-name>isAllowed</tag-name>
+		<handler-class>it.vige.webprogramming.javaserverfaces.auth.ACLTagHandler
+		</handler-class>
+	</tag>
+
+	<tag>
+		<tag-name>isAllowedChoose</tag-name>
+		<handler-class>it.vige.webprogramming.javaserverfaces.auth.ACLChooseTagHandler
+		</handler-class>
+	</tag>
+	<tag>
+		<tag-name>isAllowedWhen</tag-name>
+		<handler-class>it.vige.webprogramming.javaserverfaces.auth.ACLWhenTagHandler
+		</handler-class>
+	</tag>
+	<tag>
+		<tag-name>isAllowedOtherwise</tag-name>
+		<handler-class>it.vige.webprogramming.javaserverfaces.auth.ACLOtherwiseTagHandler
+		</handler-class>
+	</tag>
+</facelet-taglib>

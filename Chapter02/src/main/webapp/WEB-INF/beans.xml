@@ -1,0 +1,22 @@
+<beans xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+		http://xmlns.jcp.org/xml/ns/javaee/beans_1_1.xsd"
+	bean-discovery-mode="all">
+	<scan>
+		<exclude name="it.vige.businesscomponents.injection.event.**" />
+	</scan>
+	<interceptors>
+		<class>it.vige.businesscomponents.injection.interceptor.AuditInterceptor</class>
+		<class>it.vige.businesscomponents.injection.interceptor.LoggingInterceptor</class>
+		<class>it.vige.businesscomponents.injection.interceptor.TraceInterceptor</class>
+		<class>it.vige.businesscomponents.injection.interceptor.ExcludedInterceptor</class>
+		<class>it.vige.businesscomponents.injection.interceptor.ExcludingInterceptor</class>
+	</interceptors>
+	<alternatives>
+		<class>it.vige.businesscomponents.injection.alternative.CoderBrutalImpl</class>
+		<stereotype>it.vige.businesscomponents.injection.alternative.stereotype.ServiceStereotype</stereotype>
+	</alternatives>
+	<decorators>
+		<class>it.vige.businesscomponents.injection.decorator.CoderDecorator</class>
+	</decorators>
+</beans>

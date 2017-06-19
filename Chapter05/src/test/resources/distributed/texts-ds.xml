@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datasources xmlns="http://www.jboss.org/ironjacamar/schema">
+    <xa-datasource jndi-name="java:/jboss/datasources/texts" pool-name="texts">
+        <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
+        <xa-datasource-property name="URL">jdbc:h2:mem:texts</xa-datasource-property>
+        <driver>h2</driver>
+        <security>
+            <user-name>sa</user-name>
+        </security>
+        <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+    </xa-datasource>
+</datasources>

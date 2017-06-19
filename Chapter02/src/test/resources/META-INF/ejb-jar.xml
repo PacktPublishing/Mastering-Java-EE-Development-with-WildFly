@@ -1,0 +1,28 @@
+<ejb-jar xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/ejb-jar_3_1.xsd"
+	version="3.1">
+	<enterprise-beans>
+		<session>
+			<ejb-name>SimpleStateless</ejb-name>
+			<local-home>it.vige.businesscomponents.injection.interceptor.service.SimpleHome</local-home>
+			<local>it.vige.businesscomponents.injection.interceptor.service.SimpleInterface</local>
+			<ejb-class>it.vige.businesscomponents.injection.interceptor.service.SimpleStatelessBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+	</enterprise-beans>
+	<interceptors>
+		<interceptor>
+			<interceptor-class>it.vige.businesscomponents.injection.interceptor.DefaultInterceptor</interceptor-class>
+		</interceptor>
+	</interceptors>
+	<assembly-descriptor>
+		<!-- Default interceptor that will apply to all methods for all beans in 
+			deployment -->
+		<interceptor-binding>
+			<ejb-name>*</ejb-name>
+			<interceptor-class>
+				it.vige.businesscomponents.injection.interceptor.DefaultInterceptor</interceptor-class>
+		</interceptor-binding>
+	</assembly-descriptor>
+</ejb-jar>
